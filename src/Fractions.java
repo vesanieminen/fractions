@@ -4,6 +4,7 @@ public class Fractions {
 
     enum Accuracy {
         Halves(2),
+        Thirds(3),
         Quarters(4),
         Eights(8),
         Sixteens(16),
