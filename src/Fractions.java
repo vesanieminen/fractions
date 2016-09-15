@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class Fractions {
 
@@ -10,18 +12,18 @@ public class Fractions {
         Sixteens(16),
         Tenths(10),
         Hundreds(100);
-        int acc;
+        BigDecimal acc;
         Accuracy(int acc) {
-            this.acc = acc;
+            this.acc = new BigDecimal(acc);
         }
     }
 
     public static String calculateFractionOf(BigDecimal number, Accuracy accuracy) {
         BigDecimal integer = number.divideToIntegralValue(new BigDecimal(1));
-        double decimal = number.subtract(integer).doubleValue();
+        BigDecimal decimal = number.subtract(integer);
         StringBuilder builder = new StringBuilder();
-        decimal = roundTo(decimal, accuracy.acc);
-        int numerator = integer.intValue() * accuracy.acc + (int)decimal;
+        decimal = decimal.multiply(accuracy.acc).round(new MathContext(10, RoundingMode.UP));
+        int numerator = integer.multiply(accuracy.acc).add(decimal).intValue();
         if (numerator > 0) {
             builder.append(numerator + "/" + accuracy.acc);
         }
