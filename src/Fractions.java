@@ -6,7 +6,9 @@ public class Fractions {
         Halves(2),
         Quarters(4),
         Eights(8),
-        Sixteens(16);
+        Sixteens(16),
+        Tenths(10),
+        Hundreds(100);
         int acc;
         Accuracy(int acc) {
             this.acc = acc;

@@ -20,6 +20,7 @@ public class TestFractions {
         Assert.assertEquals("2/4", Fractions.calculateFractionOf(new BigDecimal(.5), quarters));
         Assert.assertEquals("3/4", Fractions.calculateFractionOf(new BigDecimal(.8), quarters));
         Assert.assertEquals("4/4", Fractions.calculateFractionOf(new BigDecimal(.9), quarters));
+        Assert.assertEquals("5/4", Fractions.calculateFractionOf(new BigDecimal(.9), quarters));
         Assert.assertEquals("", Fractions.calculateFractionOf(new BigDecimal(0), quarters));
     }
 }
